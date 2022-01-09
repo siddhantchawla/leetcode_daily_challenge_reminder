@@ -1,0 +1,13 @@
+{
+    "name": "Leetcode Daily Challenge Reminder",
+    "description": "Reminder for Leetcode Daily Challenge and Your Leetcode Stats",
+    "version": "1.0.0",
+    "manifest_version": 3,
+    "permissions": ["cookies", "alarms", "notifications"],
+    "host_permissions": [
+        "<all_urls>"
+      ],
+    "action": {
+      "default_popup": "popup.html"
+    }
+  }
