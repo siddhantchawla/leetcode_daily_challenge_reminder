@@ -27,10 +27,24 @@ const alerts = [
       like.
     </Alert>
   ));
+
+
 function Popup() {
+    const [res, setRes] = useState("Loading");
+    const [errorMsg, setErrorMsg] = useState("");
+    const [problem, setProblem] = useState("");
+    const [problemLink, setProblemLink] = useState("");
+    const [userLogin, setUserLogin] = useState(true);
+
+    
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
-    chrome.cookies.getAll({domain: "leetcode.com", name: "LEETCODE_SESSION"}, (res) => {myHeaders.append("LEETCODE_SESSION", res[0].value)});
+    chrome.cookies.getAll({domain: "leetcode.com", name: "LEETCODE_SESSION"}, (res) => { 
+                        if(res.length == 0){
+                            setUserLogin(false);
+                        }
+                        else {
+                            myHeaders.append("LEETCODE_SESSION", res[0].value) }});
 
     var requestOptions = {
         method: 'POST',
@@ -38,10 +52,7 @@ function Popup() {
         body: graphql
         };
     
-    const [res, setRes] = useState("Loading");
-    const [errorMsg, setErrorMsg] = useState("");
-    const [problem, setProblem] = useState("");
-    const [problemLink, setProblemLink] = useState("");
+    
 
     useEffect(() => {
         fetch("https://leetcode.com/graphql", requestOptions)
@@ -57,15 +68,6 @@ function Popup() {
             setErrorMsg(error);
         })
     }, [])
-
-    chrome.notifications.create('test', {
-        type: 'basic',
-        iconUrl: '/download.png',
-        title: 'Test Message',
-        message: 'You are awesome!',
-        priority: 2
-    });
-    
     return (
         
         <Container>
@@ -80,13 +82,13 @@ function Popup() {
                 </Container>
             }
             
-            {res == "NotStart" &&
+            {res == "NotStart" && userLogin &&
                 <Container>
                     <Alert variant="danger">
                         <h4>You haven't completed problem for today!</h4>
                         <h6>Here are the details: </h6>
                         <p>Today's Problem: &emsp; 
-                            <a href={ problemLink }>{ problem }</a>
+                            <a href={ problemLink }  target="_blank">{ problem }</a>
                         </p>
                         
                     </Alert>
