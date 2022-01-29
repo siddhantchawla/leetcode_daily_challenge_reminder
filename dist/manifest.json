@@ -1,8 +1,13 @@
 {
-    "name": "Leetcode Daily Challenge Reminder",
+    "name": "Daily-Challenge Reminder",
     "description": "Reminder for Leetcode Daily Challenge and Your Leetcode Stats",
     "version": "1.0.0",
     "manifest_version": 3,
+    "icons": { 
+      "16": "logo5.png",
+      "48": "logo5.png",
+     "128": "logo5.png" 
+    },
     "background": {
         "service_worker": "background.js"
       },

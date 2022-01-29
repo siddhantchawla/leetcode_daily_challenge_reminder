@@ -1,5 +1,5 @@
 
-chrome.alarms.create("Reminder Alarm", {delayInMinutes: 0.1, periodInMinutes: 120} );
+chrome.alarms.create("Reminder-Alarm", {delayInMinutes: 0.1, periodInMinutes: 120} );
 chrome.alarms.onAlarm.addListener(function(alarm) {
 
     const graphql = JSON.stringify({
@@ -31,9 +31,9 @@ chrome.alarms.onAlarm.addListener(function(alarm) {
             {
                 chrome.notifications.clear('Leetcode Reminder', () => {chrome.notifications.create('Leetcode Reminder', {
                     type: 'basic',
-                    iconUrl: '/download.png',
-                    title: 'LeetCode Daily Challenge Reminder!',
-                    message: 'You haven\'t completed today\'s problem\n' + 'Problem: ' + result.data.activeDailyCodingChallengeQuestion.question.title,
+                    iconUrl: '/logo5.png',
+                    title: 'Daily-Challenge Reminder!',
+                    message: 'You haven\'t completed today\'s Problem: ' + result.data.activeDailyCodingChallengeQuestion.question.title,
                     priority: 2
                     }, () => {chrome.notifications.onClicked.addListener(() => {
                         chrome.tabs.create({url: "https://leetcode.com"+result.data.activeDailyCodingChallengeQuestion.link});
