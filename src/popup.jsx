@@ -179,7 +179,7 @@ function Popup() {
                 <Container>
                     <Alert variant="danger">
                         { userLogin && 
-                                <h4>You haven't completed the today's challenge!</h4>
+                                <h4>You haven't completed today's challenge!</h4>
                                 
                         }
                         <p><b>Today's Problem: &emsp;</b>
