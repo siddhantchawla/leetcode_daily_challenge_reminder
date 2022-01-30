@@ -3,33 +3,20 @@ import { render } from "react-dom";
 import Alert from 'react-bootstrap/Alert'
 import Container from 'react-bootstrap/Container';
 import { Navbar } from "react-bootstrap";
-import { ListGroup } from "react-bootstrap";
 import Chevron from "react-chevron";
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 function QuestionDifficulty(props) {
-    const [toggleChevron, setChevron] = useState(true);
     return (
         <Container>
-            { toggleChevron &&
-            <div onClick={() => {setChevron(!toggleChevron)}}>
-              <Chevron direction={ "right" } /> Question Difficulty  
-            </div>
-            }
-            { !toggleChevron &&
-            <div onClick={() => {setChevron(!toggleChevron)}}>
-                <Chevron direction={ "down" } /> Question Difficulty: 
-                <h6>&emsp;&nbsp;&nbsp; {props.difficulty} </h6> 
-            </div>
-            }
+            &emsp;&nbsp;Question Difficulty: <b>&nbsp;{props.difficulty} </b>
         </Container>
     )
 }
 
 function TopicTags(props) {
-    console.log(props)
     const [toggleChevron, setChevron] = useState(true);
     const topicTags = []
     props.topicTags.map(topic => {
@@ -200,7 +187,9 @@ function Popup() {
                         </p>
                         < QuestionDifficulty difficulty = {problemDifficulty} />
                         < TopicTags topicTags = {topicTags}/>
+                       
                     </Alert>
+                    <Navbar></Navbar>
                 </Container>
             }
 
@@ -211,6 +200,7 @@ function Popup() {
                         <h6>Come back tomorrow for another question! :)</h6>
                     </Alert>
                 </Container>
+                
             }
 
             {res == "Error" && 
