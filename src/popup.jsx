@@ -199,6 +199,7 @@ function Popup() {
                         <h4>Good Job! You have already completed the question for today!</h4>
                         <h6>Come back tomorrow for another question! :)</h6>
                     </Alert>
+                    <Navbar></Navbar>
                 </Container>
                 
             }
