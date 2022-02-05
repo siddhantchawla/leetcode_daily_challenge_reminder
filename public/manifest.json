@@ -8,7 +8,7 @@
       },
     "permissions": ["cookies", "alarms", "activeTab", "notifications"],
     "host_permissions": [
-        "<all_urls>"
+        "https://leetcode.com/*"
       ],
     "action": {
       "default_popup": "popup.html"

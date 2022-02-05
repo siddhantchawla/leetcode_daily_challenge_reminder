@@ -1,5 +1,5 @@
 
-chrome.alarms.create("Reminder-Alarm", {delayInMinutes: 0.1, periodInMinutes: 120} );
+chrome.alarms.create("Reminder-Alarm", {delayInMinutes: 2, periodInMinutes: 120} );
 chrome.alarms.onAlarm.addListener(function(alarm) {
 
     const graphql = JSON.stringify({
