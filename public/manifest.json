@@ -1,11 +1,14 @@
 {
     "name": "Daily-Challenge Reminder",
-    "description": "Reminder for Leetcode Daily Challenge and Your Leetcode Stats",
+    "description": "Reminds user to complete the Leetcode Daily Challenge Question",
     "version": "1.0.0",
     "manifest_version": 3,
     "background": {
         "service_worker": "background.js"
       },
+    "icons": {
+        "128": "logo5.png"
+     },
     "permissions": ["cookies", "alarms", "activeTab", "notifications"],
     "host_permissions": [
         "https://leetcode.com/*"
